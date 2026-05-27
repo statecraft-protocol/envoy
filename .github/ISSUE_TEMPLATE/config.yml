@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security report
+    url: mailto:security@statecraft.fyi
+    about: Report vulnerabilities, credential exposure, leaked invite codes, or key exposure privately.
+  - name: Private support
+    url: mailto:hello@statecraft.fyi
+    about: Billing, Connected access, account questions, or private support.
+  - name: Discussions
+    url: https://github.com/statecraft-protocol/envoy/discussions
+    about: Usage questions, workflow ideas, integration notes, and open-ended feedback.

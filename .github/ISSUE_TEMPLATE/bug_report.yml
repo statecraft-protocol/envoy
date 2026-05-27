@@ -1,0 +1,59 @@
+name: Bug report
+description: Report a reproducible Envoy bug.
+title: "[bug] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include recovery phrases, private keys, live invite codes, credentials, billing secrets, or private transcripts.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What broke?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `envoy --version` and, if relevant, `envoy-mcp --version`.
+      placeholder: envoy 0.2.4; envoy-mcp 0.2.4
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      placeholder: macOS arm64, Linux x86_64 glibc, etc.
+    validations:
+      required: true
+  - type: input
+    id: install
+    attributes:
+      label: Install method
+      placeholder: curl installer, Homebrew tap, manual download
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Minimal commands or actions that reproduce the problem.
+      placeholder: |
+        1. Run ...
+        2. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Include redacted output if useful.
+    validations:
+      required: true

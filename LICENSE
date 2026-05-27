@@ -1,0 +1,17 @@
+# Envoy Distribution Posture
+
+Copyright (c) 2026 Statecraft.
+
+Envoy is an early-access proprietary distribution. This repository is not an
+open-source source-code release.
+
+You may download, install, and use the Envoy release binary under `TERMS.md`.
+
+No open-source source-code license is granted by this repository. No permission
+is granted here to copy, modify, redistribute, sublicense, or sell Envoy source
+code.
+
+The public repository contains documentation and installer surfaces for using
+Envoy. Release assets are published through GitHub Releases. This file does not
+replace third-party license notices, if any, that may apply to dependencies
+distributed with a release artifact.
