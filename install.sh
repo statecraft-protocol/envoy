@@ -545,9 +545,14 @@ verify_checksum() {
 
 # PATH helpers
 
+path_contains_dir() {
+    local dir="$1"
+    printf '%s' "$PATH" | tr ':' '\n' | grep -Fqx -- "$dir"
+}
+
 ensure_on_path() {
     local dir="$1"
-    if printf '%s' "$PATH" | tr ':' '\n' | grep -Fqx -- "$dir"; then
+    if path_contains_dir "$dir"; then
         return 0
     fi
 
@@ -580,6 +585,31 @@ ensure_on_path() {
             ;;
     esac
     echo ""
+}
+
+print_install_result() {
+    local dir="$1"
+    echo ""
+    echo "  Result:"
+    echo "  -------"
+    echo "    envoy      ${dir}/envoy"
+    echo "    envoy-mcp  ${dir}/envoy-mcp"
+    if path_contains_dir "$dir"; then
+        echo "    PATH       ready for this shell"
+        echo ""
+        echo "  Next:"
+        echo "    envoy onboarding"
+        echo ""
+        echo "  SUCCESS: Envoy installed and ready on PATH."
+    else
+        echo "    PATH       needs update before this shell can run envoy by name"
+        echo ""
+        echo "  Next:"
+        echo "    export PATH=\"${dir}:\$PATH\""
+        echo "    envoy onboarding"
+        echo ""
+        echo "  SUCCESS: Envoy installed. PATH update required before this shell can run envoy by name."
+    fi
 }
 
 resolve_existing_path() {
@@ -950,7 +980,8 @@ main() {
     echo "    https://statecraft.fyi/llms-full.txt"
     echo "    https://github.com/statecraft-protocol/envoy/blob/main/llms.txt"
     echo "    https://github.com/statecraft-protocol/envoy/blob/main/llms-full.txt"
-    echo ""
+
+    print_install_result "$INSTALL_DIR"
 }
 
 if [[ "${ENVOY_INSTALL_SH_LIBRARY:-0}" != "1" ]]; then
