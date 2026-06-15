@@ -1,0 +1,5 @@
+Contact: mailto:security@statecraft.fyi
+Expires: 2027-04-20T00:00:00Z
+Preferred-Languages: en
+Policy: https://github.com/statecraft-protocol/envoy/blob/main/SECURITY.md
+Canonical: https://statecraft.fyi/.well-known/security.txt

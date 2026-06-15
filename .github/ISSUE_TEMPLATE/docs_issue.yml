@@ -1,0 +1,24 @@
+name: Docs issue
+description: Report unclear, stale, missing, or incorrect documentation.
+title: "[docs] "
+labels: ["documentation", "needs-triage"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page or file
+      placeholder: README.md, llms.txt, SECURITY.md, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is confusing, stale, missing, or wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: suggested
+    attributes:
+      label: Suggested fix
+      description: Optional. Plain language is fine.

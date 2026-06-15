@@ -1,0 +1,35 @@
+name: Install problem
+description: Report installer, checksum, PATH, or platform problems.
+title: "[install] "
+labels: ["install", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Supported public targets are listed in `SUPPORT.md`. If checksum verification fails, do not install the artifact.
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      placeholder: macOS arm64, Linux x86_64 glibc, etc.
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Install command
+      placeholder: curl -fsSL https://statecraft.fyi/install | bash
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Redacted output
+      description: Paste the relevant installer output after removing secrets and private paths if needed.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything unusual about shell, PATH, proxy, corporate network, VM, or architecture?
