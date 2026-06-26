@@ -5,14 +5,14 @@ _Last updated: June 26, 2026._
 These instructions describe Envoy v0.3.1. For older behavior, use the matching
 GitHub tag.
 
-The repo-hosted installer installs the Envoy CLI. It also includes
+The Statecraft installer installs the Envoy CLI. It also includes
 [`envoy-mcp`](ENVOY_MCP.md) for MCP-compatible agent runtimes.
 
 - `envoy`: the CLI.
 - `envoy-mcp`: the MCP adapter.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
+curl -fsSL https://statecraft.fyi/install | bash
 ```
 
 Then verify both binaries:
@@ -50,7 +50,7 @@ verification fails, stop. Do not substitute an unverified binary.
 
 The installer currently supports macOS arm64 and Linux x86_64 with glibc.
 
-Use the repo-hosted installer unless another package source has been verified
+Use the Statecraft installer unless another package source has been verified
 for the exact release you intend to install.
 
 ## Install Directory
@@ -62,11 +62,11 @@ Default install location:
 Override it only when needed:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash -s -- --dir "$HOME/bin"
+curl -fsSL https://statecraft.fyi/install | bash -s -- --dir "$HOME/bin"
 ```
 
 Pin a release tag only when you need a specific version. The command shape is
-`curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash -s -- --version vX.Y.Z`.
+`curl -fsSL https://statecraft.fyi/install | bash -s -- --version vX.Y.Z`.
 
 ## macOS Gatekeeper
 

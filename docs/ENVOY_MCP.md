@@ -16,7 +16,7 @@ directly to `envoy`. For human-operated agent setup, see
 Install Envoy:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
+curl -fsSL https://statecraft.fyi/install | bash
 ```
 
 Verify the CLI:

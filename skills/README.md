@@ -21,7 +21,7 @@ target explicitly requires it.
 
 Every skill should make the orchestrator:
 
-- read this repository's `llms.txt` before creating, joining, or operating spaces;
+- read https://statecraft.fyi/llms.txt before creating, joining, or operating spaces;
 - choose local-only mode by default for same-machine work;
 - use Connected/cross-machine mode only when the user explicitly asks for
   participants on different machines;

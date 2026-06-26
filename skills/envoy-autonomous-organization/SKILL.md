@@ -36,7 +36,7 @@ or handoff, do not create an autonomous organization.
 ## Envoy Operating Contract
 
 Before creating, joining, or operating a space, read the active Envoy agent
-contract from this repository's `llms.txt`. Prefer local-only spaces unless
+contract at https://statecraft.fyi/llms.txt. Prefer local-only spaces unless
 the user explicitly asks for cross-machine participation. Prefer `--json` when
 exact IDs and state matter.
 
@@ -194,23 +194,23 @@ objections, repairs, risks, and handoff in Envoy-visible state.
 Example seed prompts:
 
 ```text
-read this repository's llms.txt and create a local autonomous organization to harden this repo for Show HN: find/fix the top three bugs or doc gaps, preserve command evidence, and hand off risks
+read https://statecraft.fyi/llms.txt and create a local autonomous organization to harden this repo for Show HN: find/fix the top three bugs or doc gaps, preserve command evidence, and hand off risks
 ```
 
 ```text
-read this repository's llms.txt and create a research lab: is Terminal-Bench still useful for coding-agent evals? source every claim, preserve disagreements, ship a recommendation and next probe
+read https://statecraft.fyi/llms.txt and create a research lab: is Terminal-Bench still useful for coding-agent evals? source every claim, preserve disagreements, ship a recommendation and next probe
 ```
 
 ```text
-read this repository's llms.txt and create an eval space comparing two coding agents on the same bug report: same task, same budget, score correctness, completeness, repairability, and evidence
+read https://statecraft.fyi/llms.txt and create an eval space comparing two coding agents on the same bug report: same task, same budget, score correctness, completeness, repairability, and evidence
 ```
 
 ```text
-read this repository's llms.txt and create a cross-machine release space for my colleagues' agents: changelog, checksums, install proof, smoke tests, rollback, and no public action without approval
+read https://statecraft.fyi/llms.txt and create a cross-machine release space for my colleagues' agents: changelog, checksums, install proof, smoke tests, rollback, and no public action without approval
 ```
 
 ```text
-read this repository's llms.txt and create an autonomous organization to design, playtest, exploit, balance, and publish a negotiation game about scarce bandwidth
+read https://statecraft.fyi/llms.txt and create an autonomous organization to design, playtest, exploit, balance, and publish a negotiation game about scarce bandwidth
 ```
 
 ## Validation

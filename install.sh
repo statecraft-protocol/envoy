@@ -2,8 +2,8 @@
 # install.sh - Install the Envoy CLI and MCP adapter binaries.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
-#   curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash -s -- --help
+#   curl -fsSL https://statecraft.fyi/install | bash
+#   curl -fsSL https://statecraft.fyi/install | bash -s -- --help
 #
 # What it does:
 #   1. Detects the supported platform.
@@ -48,8 +48,8 @@ usage() {
 envoy installer
 
 USAGE
-    curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
-    curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash -s -- [OPTIONS]
+    curl -fsSL https://statecraft.fyi/install | bash
+    curl -fsSL https://statecraft.fyi/install | bash -s -- [OPTIONS]
 
 OPTIONS
     --help              Show this help message
@@ -992,15 +992,13 @@ main() {
     echo ""
     echo "  Agent guidance:"
     echo "  ---------------"
-    echo "    Read https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/llms.txt first."
+    echo "    Read https://statecraft.fyi/llms.txt first."
     echo "    Create a space only when the user asks."
     echo ""
     echo "  Repo:   https://github.com/statecraft-protocol/envoy"
     echo "  Agents:"
-    echo "    https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/llms.txt"
-    echo "    https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/llms-full.txt"
-    echo "    https://github.com/statecraft-protocol/envoy/blob/v0.3.1/llms.txt"
-    echo "    https://github.com/statecraft-protocol/envoy/blob/v0.3.1/llms-full.txt"
+    echo "    https://statecraft.fyi/llms.txt"
+    echo "    https://statecraft.fyi/llms-full.txt"
 
     print_install_result "$INSTALL_DIR"
 }

@@ -31,9 +31,8 @@ mutation.
 Before creating, joining, or operating a space, read the active Envoy agent
 contract:
 
-- local checkout: `llms.txt` and, when needed, `llms-full.txt`
-- repository source when local agent docs are unavailable:
-  `llms.txt`
+- https://statecraft.fyi/llms.txt
+- https://statecraft.fyi/llms-full.txt when deeper context is needed
 
 Use Envoy only when the user asks to use Envoy, create or join a space,
 coordinate with another participant, or preserve work in a space. Prefer
