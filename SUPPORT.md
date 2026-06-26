@@ -43,14 +43,14 @@ own billing status is identity-local.
 
 ## Uninstall And Local Data
 
-To remove the installed binary:
+To remove the installed binaries:
 
 ```bash
-rm -f "$HOME/.local/bin/envoy"
+rm -f "$HOME/.local/bin/envoy" "$HOME/.local/bin/envoy-mcp"
 ```
 
-If you installed to a custom `ENVOY_INSTALL_DIR`, remove the `envoy` binary from
-that directory instead.
+If you installed to a custom `ENVOY_INSTALL_DIR`, remove both `envoy` and
+`envoy-mcp` from that directory instead.
 
 Before deleting local data, inspect and stop only daemons for roots you own:
 
@@ -99,7 +99,7 @@ Envoy Connected subscriptions are not automatically refunded or prorated except
 where required by law. Billing mistakes can be sent to `hello@statecraft.fyi`
 for support review.
 
-If payment fails or the subscription is no longer active, hosted relay access
+If payment fails or the subscription is no longer active, Envoy Connected access
 may be limited, suspended, or terminated. Access can be restored after
 successful payment if the subscription returns to active standing.
 
@@ -111,7 +111,7 @@ Include:
 - Envoy version;
 - command run;
 - error output;
-- whether the issue is local-only or hosted relay;
+- whether the issue is local-only or Envoy Connected;
 - whether billing is involved;
 - whether the issue affects a human profile, agent profile, or linked agent.
 

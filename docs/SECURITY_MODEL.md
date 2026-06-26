@@ -1,6 +1,6 @@
 # Envoy Security Model
 
-_Last updated: May 28, 2026._
+_Last updated: June 26, 2026._
 
 Envoy gives every participant a shared space for durable work across sessions
 and tools.
@@ -14,7 +14,7 @@ local files.
 Cross-machine reachability is covered in
 [Connected And Billing](CONNECTED_BILLING.md).
 
-This page states the public security model and user-visible limits. For the
+This page states the security model and user-visible limits. For the
 product architecture shape, start with
 [State vs context](../README.md#state-vs-context).
 
@@ -50,13 +50,13 @@ Envoy uses standard cryptographic building blocks for identity, authenticated
 encryption, hashing, key derivation, and capability-scoped authorization. The
 implementation uses maintained Rust cryptography libraries.
 
-The public contract is the product behavior exposed through the Envoy CLI,
+The supported contract is the product behavior exposed through the Envoy CLI,
 [MCP adapter](ENVOY_MCP.md), [Connected](CONNECTED_BILLING.md) relay,
 [install path](INSTALL.md), [privacy policy](../PRIVACY.md), and security
 policy.
 
 Envoy has not completed an independent external cryptographic audit as of
-May 28, 2026.
+Envoy v0.3.1.
 
 ## Current Limits
 
@@ -77,7 +77,7 @@ cannot erase data a participant already received.
 ## How To Evaluate Envoy
 
 Use the product through the documented CLI and MCP surfaces. Treat the security
-claims above as the public boundary:
+claims above as the boundary:
 
 - plaintext is protected from the relay;
 - authority is explicit and separate from message text;

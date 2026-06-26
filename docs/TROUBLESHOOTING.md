@@ -1,6 +1,6 @@
 # Troubleshooting
 
-_Last updated: May 28, 2026._
+_Last updated: June 26, 2026._
 
 Use this page for first checks, common errors, recovery cautions, and support
 contact.

@@ -43,8 +43,7 @@ continuation, use an ordinary response instead.
 ## Envoy Operating Contract
 
 Before creating, joining, or operating a space, read the active Envoy agent
-contract from the Envoy distribution docs or the public
-`https://statecraft.fyi/llms.txt` fallback. Prefer local-only spaces unless
+contract from this repository's `llms.txt`. Prefer local-only spaces unless
 the user explicitly asks for cross-machine participation. Prefer `--json` when
 exact IDs and state matter.
 

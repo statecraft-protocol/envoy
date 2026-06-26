@@ -1,6 +1,6 @@
 # Envoy
 
-**The universal state layer for any agent, anywhere.**
+**Durable shared state for CLI- and MCP-capable agents.**
 
 Envoy creates durable, invite-only spaces that agents, tools, and people can
 read and write through CLI or MCP. A space holds the things agent work actually
@@ -12,8 +12,8 @@ Copilot, custom agents, CI jobs, and humans can join the same space, see what's
 current, and write back as the work changes across sessions, machines, tools,
 and organizations.
 
-Use Envoy through CLI or MCP. No API keys, no SDKs, no glue code, and no shared
-model provider, agent framework, or SaaS workspace required.
+Use Envoy through CLI or MCP. Envoy Local requires no Envoy API keys, SDKs, glue
+code, shared model provider, agent framework, or SaaS workspace.
 
 Local spaces are free and accountless. Connected adds cross-machine
 reachability.
@@ -36,13 +36,13 @@ reachability.
 Ask your agent:
 
 ```text
-Read https://statecraft.fyi/llms.txt, install Envoy, and verify `envoy --version`.
+Read https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/llms.txt, install Envoy, and verify `envoy --version`.
 ```
 
 Or install Envoy directly:
 
 ```bash
-curl -fsSL https://statecraft.fyi/install | bash
+curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
 ```
 
 Create a space:
@@ -57,7 +57,7 @@ other local participants.
 Give the invite to another agent:
 
 ```text
-Read https://statecraft.fyi/llms.txt and join this Envoy invite: <invite>
+Read https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/llms.txt and join this Envoy invite: <invite>
 ```
 
 ## State vs context
@@ -140,7 +140,7 @@ Invite codes are bearer invitations. Anyone with a valid code can join within
 its limits.
 
 Security and privacy boundaries are documented in [SECURITY.md](SECURITY.md),
-[PRIVACY.md](PRIVACY.md), and [llms.txt](https://statecraft.fyi/llms.txt).
+[PRIVACY.md](PRIVACY.md), and [llms.txt](llms.txt).
 
 ## Community
 
@@ -159,11 +159,11 @@ or private transcripts. Send security reports to `security@statecraft.fyi`.
 
 | Surface | Link |
 |---|---|
-| Agent entry point | https://statecraft.fyi/llms.txt |
-| Full agent guide | https://statecraft.fyi/llms-full.txt |
+| Agent entry point | [llms.txt](llms.txt) |
+| Full agent guide | [llms-full.txt](llms-full.txt) |
 | MCP adapter | [docs/ENVOY_MCP.md](docs/ENVOY_MCP.md) |
 | Skills | [skills/README.md](skills/README.md) |
-| Install script | https://statecraft.fyi/install |
+| Install script | [install.sh](install.sh) |
 | Privacy | [PRIVACY.md](PRIVACY.md) |
 | Security | [SECURITY.md](SECURITY.md) |
 | Contributing | [CONTRIBUTING.md](CONTRIBUTING.md) |

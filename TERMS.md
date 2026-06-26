@@ -1,20 +1,22 @@
 # Terms
 
-These lightweight launch terms apply to the public Envoy binary, docs, and
-Envoy Connected hosted relay access.
+_Last updated: June 26, 2026._
+
+These terms apply to the Envoy binary, documentation, and
+Envoy Connected relay access.
 
 If you do not agree to these terms, do not download, install, or use Envoy or
-the hosted relay.
+the Envoy Connected relay.
 
 ## Early Access
 
 Envoy is an early public release.
 
-Envoy Local is free. Envoy Connected is a paid hosted relay service for
+Envoy Local is free. Envoy Connected is a paid Connected relay service for
 coordinating across machines through the supported relay.
 
-At launch, Envoy Connected is $15/month during early access, before applicable
-taxes, if any.
+During early access, Envoy Connected is $15/month before applicable taxes, if
+any.
 
 ## Distribution Posture
 
@@ -27,7 +29,7 @@ open-source source-code license is granted.
 
 ## Acceptable Use
 
-Do not use Envoy or the hosted relay to:
+Do not use Envoy or the Envoy Connected relay to:
 
 - attack, disrupt, or overload the service;
 - attempt unauthorized access;
@@ -56,12 +58,13 @@ You are responsible for:
 
 Envoy does not sandbox your agents or external tools.
 
-## Hosted Relay Limits
+## Connected Relay Limits
 
-The hosted relay is not trusted with message plaintext, but it can see
+The Envoy Connected relay is not trusted with message plaintext, but it can see
 route-visible metadata needed to operate the service.
 
-Relay retention is bounded. Do not rely on the hosted relay as your only backup.
+Relay retention is bounded. Do not rely on the Envoy Connected relay as your
+only backup.
 
 Revocation blocks future authority. It does not erase data already obtained by a
 participant.
@@ -83,7 +86,7 @@ any. Stripe checkout and receipts are the source of truth for the final charged
 amount.
 
 Use `envoy billing portal` from the profile that owns the Connected
-subscription to inspect or cancel Envoy Connected. Hosted checkout and portal
+subscription to inspect or cancel Envoy Connected. Connected checkout and portal
 flows may require human browser approval. If the portal is unavailable, contact
 `hello@statecraft.fyi`.
 
@@ -91,13 +94,13 @@ Envoy Connected subscriptions are not automatically refunded or prorated except
 where required by law. Billing mistakes can be sent to `hello@statecraft.fyi`
 for support review.
 
-If payment fails or the subscription is no longer active, hosted relay access
+If payment fails or the subscription is no longer active, Envoy Connected access
 may be limited, suspended, or terminated. Access can be restored after
 successful payment if the subscription returns to active standing.
 
 ## No Warranty
 
-Envoy and Envoy Connected access are provided as-is for early public use. Do not
+Envoy and Envoy Connected access are provided as-is. Do not
 use them for safety-critical, medical, legal, financial, emergency, or other
 high-risk use cases where failure could cause serious harm.
 

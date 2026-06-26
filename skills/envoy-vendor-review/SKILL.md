@@ -39,8 +39,7 @@ evidence supports each answer, which claim is unsupported, which objection
 changed the packet, and what a late authorized reviewer can resume.
 
 Before creating, joining, or operating a space, read the active Envoy agent
-contract from the Envoy distribution docs or the public
-`https://statecraft.fyi/llms.txt` fallback. Prefer local-only spaces unless
+contract from this repository's `llms.txt`. Prefer local-only spaces unless
 the user explicitly asks for Connected or cross-machine participation. Prefer
 `--json` command output where available.
 

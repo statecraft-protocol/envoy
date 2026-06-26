@@ -21,8 +21,7 @@ target explicitly requires it.
 
 Every skill should make the orchestrator:
 
-- read the active Envoy agent contract from the Envoy distribution docs or the
-  public `https://statecraft.fyi/llms.txt` fallback;
+- read this repository's `llms.txt` before creating, joining, or operating spaces;
 - choose local-only mode by default for same-machine work;
 - use Connected/cross-machine mode only when the user explicitly asks for
   participants on different machines;

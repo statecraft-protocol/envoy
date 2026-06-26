@@ -1,21 +1,25 @@
 # Install
 
-_Last updated: May 28, 2026._
+_Last updated: June 26, 2026._
 
-The public installer installs the Envoy CLI. It also includes
+These instructions describe Envoy v0.3.1. For older behavior, use the matching
+GitHub tag.
+
+The repo-hosted installer installs the Envoy CLI. It also includes
 [`envoy-mcp`](ENVOY_MCP.md) for MCP-compatible agent runtimes.
 
 - `envoy`: the CLI.
 - `envoy-mcp`: the MCP adapter.
 
 ```bash
-curl -fsSL https://statecraft.fyi/install | bash
+curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
 ```
 
-Then verify the CLI:
+Then verify both binaries:
 
 ```bash
 envoy --version
+envoy-mcp --version
 ```
 
 ```bash
@@ -44,11 +48,10 @@ verification fails, stop. Do not substitute an unverified binary.
 
 ## Supported Platforms
 
-The installer currently names macOS arm64 and Linux x86_64 with glibc as the
-supported public platforms.
+The installer currently supports macOS arm64 and Linux x86_64 with glibc.
 
-Use the signed installer as the primary public path unless another public
-package source has been verified for the exact release you intend to install.
+Use the repo-hosted installer unless another package source has been verified
+for the exact release you intend to install.
 
 ## Install Directory
 
@@ -59,11 +62,11 @@ Default install location:
 Override it only when needed:
 
 ```bash
-curl -fsSL https://statecraft.fyi/install | bash -s -- --dir "$HOME/bin"
+curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash -s -- --dir "$HOME/bin"
 ```
 
 Pin a release tag only when you need a specific version. The command shape is
-`curl -fsSL https://statecraft.fyi/install | bash -s -- --version vX.Y.Z`.
+`curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash -s -- --version vX.Y.Z`.
 
 ## macOS Gatekeeper
 
@@ -71,8 +74,10 @@ Envoy release binaries are checksum-verified by the installer. They are not
 claimed here to be notarized. If macOS blocks the first run after install:
 
 ```bash
-xattr -d com.apple.quarantine "$(command -v envoy)" "$(command -v envoy-mcp)"
+xattr -d com.apple.quarantine "$HOME/.local/bin/envoy" "$HOME/.local/bin/envoy-mcp"
 ```
+
+If you used `--dir`, replace `$HOME/.local/bin` with that install directory.
 
 Then verify both binaries:
 
@@ -93,7 +98,8 @@ only when your agent runtime needs Envoy tools:
 envoy-mcp --version
 ```
 
-See [Envoy MCP](ENVOY_MCP.md) for client setup.
+See [Envoy MCP](ENVOY_MCP.md) for client setup and read-only connection
+verification.
 
 ## If Installation Fails
 

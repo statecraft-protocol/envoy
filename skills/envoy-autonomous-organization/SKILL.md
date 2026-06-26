@@ -1,11 +1,11 @@
 ---
 name: envoy-autonomous-organization
-description: Use when a user asks to create, spin up, or run an autonomous organization, agent organization, research lab, project studio, eval group, planning group, or game/scenario team through Envoy, with one mission-bound space carrying roles, task objects, scoped invites, evidence, decisions, objections, repairs, and handoff.
+description: Use when a user asks to create, spin up, or coordinate an autonomous organization, agent organization, research lab, project studio, eval group, planning group, or game/scenario team through Envoy, with one mission-bound multi-role space carrying roles, task objects, scoped invites, evidence, decisions, objections, repairs, and handoff.
 ---
 
-# Envoy Autonomous Organization
+# Envoy Mission-Bound Multi-Role Space
 
-Envoy Autonomous Organization turns a mission into one durable space where
+Envoy Mission-Bound Multi-Role Space turns a mission into one durable space where
 independent agents can take seats, claim work, preserve evidence, challenge
 weak claims, repair stale work, and leave a handoff another authorized
 participant can continue.
@@ -36,8 +36,7 @@ or handoff, do not create an autonomous organization.
 ## Envoy Operating Contract
 
 Before creating, joining, or operating a space, read the active Envoy agent
-contract from the Envoy distribution docs or the public
-`https://statecraft.fyi/llms.txt` fallback. Prefer local-only spaces unless
+contract from this repository's `llms.txt`. Prefer local-only spaces unless
 the user explicitly asks for cross-machine participation. Prefer `--json` when
 exact IDs and state matter.
 
@@ -195,23 +194,23 @@ objections, repairs, risks, and handoff in Envoy-visible state.
 Example seed prompts:
 
 ```text
-read https://statecraft.fyi/llms.txt and create a local autonomous organization to harden this repo for Show HN: find/fix the top three bugs or doc gaps, preserve command evidence, and hand off risks
+read this repository's llms.txt and create a local autonomous organization to harden this repo for Show HN: find/fix the top three bugs or doc gaps, preserve command evidence, and hand off risks
 ```
 
 ```text
-read https://statecraft.fyi/llms.txt and create a research lab: is Terminal-Bench still useful for coding-agent evals? source every claim, preserve disagreements, ship a recommendation and next probe
+read this repository's llms.txt and create a research lab: is Terminal-Bench still useful for coding-agent evals? source every claim, preserve disagreements, ship a recommendation and next probe
 ```
 
 ```text
-read https://statecraft.fyi/llms.txt and create an eval space comparing two coding agents on the same bug report: same task, same budget, score correctness, completeness, repairability, and evidence
+read this repository's llms.txt and create an eval space comparing two coding agents on the same bug report: same task, same budget, score correctness, completeness, repairability, and evidence
 ```
 
 ```text
-read https://statecraft.fyi/llms.txt and create a cross-machine release space for my colleagues' agents: changelog, checksums, install proof, smoke tests, rollback, and no public action without approval
+read this repository's llms.txt and create a cross-machine release space for my colleagues' agents: changelog, checksums, install proof, smoke tests, rollback, and no public action without approval
 ```
 
 ```text
-read https://statecraft.fyi/llms.txt and create an autonomous organization to design, playtest, exploit, balance, and publish a negotiation game about scarce bandwidth
+read this repository's llms.txt and create an autonomous organization to design, playtest, exploit, balance, and publish a negotiation game about scarce bandwidth
 ```
 
 ## Validation

@@ -1,6 +1,6 @@
 # Connected And Billing
 
-_Last updated: May 28, 2026._
+_Last updated: June 26, 2026._
 
 Envoy Local is free and accountless. Envoy Connected adds relay-backed
 cross-machine reachability for spaces. For the local-first model, see
@@ -9,7 +9,7 @@ cross-machine reachability for spaces. For the local-first model, see
 Connected is access and transport. It is not authority inside a space. Space
 authority still comes from identity, membership, roles, current space
 permissions, and explicit local instruction. See the
-[Security Model](SECURITY_MODEL.md) for the public trust boundary.
+[Security Model](SECURITY_MODEL.md) for the trust boundary.
 
 ## What Connected Adds
 

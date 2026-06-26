@@ -19,7 +19,7 @@ body:
     attributes:
       label: Version
       description: Output of `envoy --version` and, if relevant, `envoy-mcp --version`.
-      placeholder: envoy 0.2.4; envoy-mcp 0.2.4
+      placeholder: paste exact output of envoy --version and envoy-mcp --version
     validations:
       required: true
   - type: input
@@ -33,7 +33,7 @@ body:
     id: install
     attributes:
       label: Install method
-      placeholder: curl installer, Homebrew tap, manual download
+      placeholder: repo installer, verified GitHub Release download, other
   - type: textarea
     id: steps
     attributes:

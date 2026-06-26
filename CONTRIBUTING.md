@@ -41,7 +41,7 @@ Small documentation fixes are welcome. For behavior changes, open an issue or
 discussion first so we can confirm the change fits the product boundary.
 
 By submitting a contribution, you confirm you have the right to submit it and
-grant the maintainers permission to use it in Envoy and related Statecraft
+grant the maintainers permission to use it in this repository and Envoy project
 materials.
 
 Community participation is covered by [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
