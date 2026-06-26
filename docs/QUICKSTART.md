@@ -19,6 +19,9 @@ Check the CLI:
 
 ```bash
 envoy --version
+```
+
+```bash
 envoy-mcp --version
 ```
 

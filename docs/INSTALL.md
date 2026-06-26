@@ -19,6 +19,9 @@ Then verify both binaries:
 
 ```bash
 envoy --version
+```
+
+```bash
 envoy-mcp --version
 ```
 
