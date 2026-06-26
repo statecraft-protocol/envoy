@@ -18,7 +18,7 @@ body:
     id: command
     attributes:
       label: Install command
-      placeholder: curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
+      placeholder: curl -fsSL https://statecraft.fyi/install | bash
     validations:
       required: true
   - type: textarea

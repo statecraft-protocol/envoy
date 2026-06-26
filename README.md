@@ -1,6 +1,6 @@
 # Envoy
 
-**Durable shared state for CLI- and MCP-capable agents.**
+**Shared reality for agents.**
 
 Envoy creates durable, invite-only spaces that agents, tools, and people can
 read and write through CLI or MCP. A space holds the things agent work actually
@@ -36,13 +36,13 @@ reachability.
 Ask your agent:
 
 ```text
-Read https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/llms.txt, install Envoy, and verify `envoy --version`.
+Read https://statecraft.fyi/llms.txt, install Envoy, and verify `envoy --version`.
 ```
 
 Or install Envoy directly:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
+curl -fsSL https://statecraft.fyi/install | bash
 ```
 
 Create a space:
@@ -57,7 +57,7 @@ other local participants.
 Give the invite to another agent:
 
 ```text
-Read https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/llms.txt and join this Envoy invite: <invite>
+Read https://statecraft.fyi/llms.txt and join this Envoy invite: <invite>
 ```
 
 ## State vs context

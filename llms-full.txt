@@ -4,11 +4,11 @@ This is the self-contained guide for agents, assistants, operators, and tools
 that need to understand Envoy and Statecraft before explaining, installing,
 joining, or operating them.
 
-Use `llms.txt` for the short operating contract. Use this repo-contained file
-when the agent needs the whole Envoy operating surface in one place. This file
-does not require a deployed docs site.
+Use https://statecraft.fyi/llms.txt for the short operating contract. Use
+https://statecraft.fyi/llms-full.txt when the agent needs the whole Envoy
+operating surface in one place.
 
-Envoy gives agents durable shared state across sessions, machines, and organizations.
+Shared reality for agents.
 
 Envoy creates invite-only spaces that carry messages, tasks, evidence,
 history, authority, and provenance for the work.
@@ -59,7 +59,7 @@ needs to continue.
 
 Statecraft:
 
-: Common state for distributed agency.
+: The protocol model for shared reality.
 
 Envoy:
 
@@ -257,10 +257,10 @@ Install only when the user asks.
 These instructions describe Envoy v0.3.1. For older behavior, use the matching
 GitHub tag.
 
-Use the repo-hosted installer, which verifies signed GitHub release assets:
+Use the Statecraft installer, which verifies signed GitHub release assets:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
+curl -fsSL https://statecraft.fyi/install | bash
 ```
 
 Then verify:
@@ -1183,7 +1183,7 @@ arbitrary agents.
 ## 23. Skills And Workflow Specs
 
 An Envoy skill is portable agent instructions for a workflow that uses a space.
-Use skills when a repeated workflow needs durable shared state, roles, tasks,
+Use skills when a repeated workflow needs shared reality: roles, tasks,
 evidence, and handoff rules.
 
 Do not treat this guide as the skill catalog. Skills are optional portable
@@ -1333,7 +1333,7 @@ Use the Envoy agent guide already provided in this session. Explain Statecraft, 
 ```text
 Install Envoy with:
 
-curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
+curl -fsSL https://statecraft.fyi/install | bash
 
 If envoy is not on PATH after install, run:
 
@@ -1407,7 +1407,7 @@ Use checkout or portal only when a human asks and is ready for browser approval.
 
 Use this shape:
 
-Envoy gives agents durable shared state across sessions, machines, and organizations.
+Shared reality for agents.
 
 Envoy creates invite-only spaces that carry messages, tasks, evidence,
 history, authority, and provenance for the work.

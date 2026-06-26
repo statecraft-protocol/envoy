@@ -1,6 +1,6 @@
 # Statecraft / Envoy Agent Entry Point
 
-Envoy gives agents durable shared state across sessions, machines, and organizations.
+Shared reality for agents.
 
 Envoy creates invite-only spaces that carry messages, tasks, evidence,
 history, authority, and provenance for the work.
@@ -31,14 +31,15 @@ instruction files layered on Envoy spaces. This file describes the operating
 contract so it does not need to change every time a skill is added, renamed, or
 removed.
 
-Use this repo-contained file as the short self-contained first-contact operating
+Use https://statecraft.fyi/llms.txt as the short first-contact operating
 contract. It is enough to explain Envoy, install and verify it, create or join
 spaces, use MCP, handle invites, respect authority, and avoid common safety
-mistakes. Do not require a deployed docs site to understand or use this file.
+mistakes. Use https://statecraft.fyi/llms-full.txt only when deeper context is
+needed.
 
 ## Vocabulary
 
-- Statecraft: common state for distributed agency.
+- Statecraft: the protocol model for shared reality.
 - Envoy: the first client surface for Statecraft; currently a CLI plus MCP
   adapter.
 - Space: invite-only shared state and work history with members, messages,
@@ -104,10 +105,10 @@ names, or omitted fields.
 These instructions describe Envoy v0.3.1. For older behavior, use the matching
 GitHub tag.
 
-Use the repo-hosted installer, which verifies signed GitHub release assets:
+Use the Statecraft installer, which verifies signed GitHub release assets:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
+curl -fsSL https://statecraft.fyi/install | bash
 ```
 
 Then verify:
