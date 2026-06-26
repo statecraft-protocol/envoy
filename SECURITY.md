@@ -1,12 +1,9 @@
 # Envoy Security Policy
 
-This policy covers security reports for Envoy, the hosted relay at
-`relay.statecraft.fyi`, and the distribution/docs surfaces at
-`statecraft.fyi`.
+_Last updated: June 26, 2026._
 
-`statecraft.fyi` intentionally uses a conservative host-only HSTS policy for
-the static distribution/docs site. Relay HSTS is managed separately on
-`relay.statecraft.fyi`.
+This policy covers security reports for Envoy, GitHub release assets, the repo
+installer, and the Envoy Connected relay at `relay.statecraft.fyi`.
 
 ## Contact
 

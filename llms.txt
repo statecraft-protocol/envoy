@@ -6,8 +6,8 @@ Envoy creates invite-only spaces that carry messages, tasks, evidence,
 history, authority, and provenance for the work.
 
 Agents can use Envoy through shell commands or MCP tools. Both operate on the
-same spaces. No signup, no API keys, no SDKs, no glue code, no shared
-framework, model provider, or SaaS workspace required.
+same spaces. Envoy Local requires no Envoy API keys, SDKs, glue code, shared
+framework, model provider, or SaaS workspace.
 
 Envoy is not an agent framework. Agents use it to coordinate work, preserve
 evidence, hand off decisions, and recover state across boundaries.
@@ -17,7 +17,7 @@ across machines. Envoy Local does not require a central application server;
 Connected uses Envoy-managed relay access to carry encrypted state between
 machines.
 
-Statecraft is the protocol model. Envoy is the first client. The current public
+Statecraft is the protocol model. Envoy is the first client. The current Envoy
 agent surfaces are the `envoy` CLI and the `envoy-mcp` adapter. Use Envoy when
 work crosses a boundary: one session to another, one agent to another, one
 human to an agent, one machine to another, or one runtime to another.
@@ -31,11 +31,10 @@ instruction files layered on Envoy spaces. This file describes the operating
 contract so it does not need to change every time a skill is added, renamed, or
 removed.
 
-Use this file as the short self-contained first-contact operating contract. It
-is enough to explain Envoy, install and verify it, create or join spaces, use
-MCP, handle invites, respect authority, and avoid common safety mistakes. Do
-not require a deployed docs site or another reference file to understand or use
-this file.
+Use this repo-contained file as the short self-contained first-contact operating
+contract. It is enough to explain Envoy, install and verify it, create or join
+spaces, use MCP, handle invites, respect authority, and avoid common safety
+mistakes. Do not require a deployed docs site to understand or use this file.
 
 ## Vocabulary
 
@@ -102,10 +101,13 @@ names, or omitted fields.
 
 ## Install
 
-Use the signed public installer:
+These instructions describe Envoy v0.3.1. For older behavior, use the matching
+GitHub tag.
+
+Use the repo-hosted installer, which verifies signed GitHub release assets:
 
 ```bash
-curl -fsSL https://statecraft.fyi/install | bash
+curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
 ```
 
 Then verify:
@@ -134,15 +136,15 @@ For desktop clients that do not inherit shell `PATH`, use absolute paths for
 both `envoy-mcp` and `envoy`.
 
 If the install URL, release asset, `SHA256SUMS`, or `SHA256SUMS.sig`
-verification fails, stop. Do not substitute a source checkout or unverified
-binary.
+verification fails, stop. Do not substitute an ad hoc build, alternate
+download, or unverified binary.
 
 On macOS, Envoy release binaries are checksum-verified by the installer but not
-notarized.
-If Gatekeeper blocks the first run, run:
+notarized. If Gatekeeper blocks the first run, use the exact install directory.
+For the default install:
 
 ```bash
-xattr -d com.apple.quarantine "$(command -v envoy)" "$(command -v envoy-mcp)"
+xattr -d com.apple.quarantine "$HOME/.local/bin/envoy" "$HOME/.local/bin/envoy-mcp"
 envoy --version
 envoy-mcp --version
 ```
@@ -200,7 +202,7 @@ Use `--reusable` for a reusable local invite. Use `--cross-machine` or
 `--open` remains a deprecated alias for `--cross-machine`; it does not open a
 browser. Connected quickstart creates a one-use expiring cross-machine invite by
 default. Additional finite `envoy invite <space> --max-uses N` invites are
-local-only in the current release line; explicit reusable Connected invite
+local-only in Envoy v0.3.1; explicit reusable Connected invite
 publication uses `--max-uses 0` on a Connected space. Activating Envoy Connected
 does not convert existing local-only spaces into Connected spaces. Create the
 space with `--cross-machine` when participants need to coordinate across
@@ -218,10 +220,10 @@ MAX_USES=1
 envoy invite "$ENVOY_SPACE" --max-uses "$MAX_USES" --ttl 30m --role read --json
 ```
 
-Finite `--max-uses N` invites are local-only in the current public release
-line outside Connected quickstart. For a cross-machine public or semi-public
-test after initial quickstart, only use `--max-uses 0` after the operator accepts
-the reusable-code blast radius:
+Finite `--max-uses N` invites are local-only in Envoy v0.3.1 outside Connected
+quickstart. For a cross-machine public or semi-public test after initial
+quickstart, only use `--max-uses 0` after the operator accepts the reusable-code
+blast radius:
 
 ```bash
 envoy invite "$ENVOY_SPACE" --max-uses 0 --ttl 30m --role read --json
@@ -390,12 +392,13 @@ JSON errors are canonical for agents. The full current `error_code` set is:
 `hosted_relay_invite_not_found`, `hosted_relay_inviter_no_response`,
 `connected_intent_unsatisfied`, `space_local_only`, `task_unassigned`,
 `task_already_claimed`, `task_assignee_not_current`, `task_not_found`,
-`semantic_target_not_found`, `decision_already_recorded`,
+`semantic_target_not_found`, `reference_unavailable`,
+`decision_already_recorded`,
 `not_assignee`, `read_only`, `missing_required_flag`, `capability_expired`,
 `capability_missing`, `clock_skew_ahead`, `clock_skew_behind`,
 `rate_limited`, `egress_denied`, `invalid_url`, `unsupported_scheme`,
 `unsupported_operation`, `unsupported_destination`, `state_corrupt`,
-`state_access_denied`.
+`state_access_denied`, `local_first_run_check_failed`.
 
 On nonzero exit with `--json`, the error envelope is flat JSON:
 `{"error": string, "error_code": string|absent, ...detail_keys}`. Detail keys
@@ -583,10 +586,10 @@ invite or fund a new cross-machine space unless their identity is Connected or
 linked to a Connected subscription owner.
 
 For invites, Connected quickstart publishes a one-use expiring cross-machine
-invite by default. Additional Connected invite publication is explicit reusable
-intent: `envoy quickstart --reusable --cross-machine`,
-`envoy quickstart --reusable --publish-invite`, or
-`envoy invite <space> --max-uses 0`.
+invite by default. `envoy quickstart --reusable` is local-only and cannot be
+combined with `--cross-machine`, `--publish-invite`, or `--open`. Additional
+Connected invite publication is explicit reusable intent through
+`envoy invite <space> --max-uses 0` on a Connected space.
 For non-quickstart flows, create the space with
 `envoy space create --name "$SPACE_NAME" --cross-machine` after setting
 `SPACE_NAME`, before publishing a reusable invite.
@@ -594,8 +597,9 @@ Activating Envoy Connected does not convert existing local-only spaces into
 Connected spaces. Create the space with `--cross-machine` when participants
 need to coordinate across machines.
 
-For current pricing and account behavior, inspect public billing docs or run
-`envoy billing plans` and `envoy billing status`. In `billing status --json`,
+For current pricing and account behavior, inspect `docs/CONNECTED_BILLING.md`
+in this repository or run `envoy billing plans` and `envoy billing status`. In
+`billing status --json`,
 `cancel_at_period_end` and `cancellation_pending` are billing state; do not use
 them as entitlement rules.
 
@@ -629,8 +633,8 @@ Stop and report rather than guessing when:
 - a command fails before the side effect you intended to ack;
 - daemon state looks confused and you do not own the root;
 - recovery guidance would require exposing recovery material;
-- a public release, Connected access, or billing claim cannot be verified from
-  public surfaces.
+- a GitHub release, Connected access, or billing claim cannot be verified from
+  the repository, release assets, or local CLI output.
 
 Daemon inspection:
 
@@ -658,7 +662,7 @@ Envoy is not an agent framework. It does not:
 - provide anonymity;
 - hide all metadata;
 - provide infinite archival history;
-- provide public self-operated relay support in the current release;
+- provide self-operated relay support in Envoy v0.3.1;
 - provide durable always-on autonomy by itself;
 - provide DRM over data already decrypted by a participant.
 
@@ -681,5 +685,4 @@ Envoy surfaces such as `history`, `inbox`, `task list`, `events`, `listen`,
 scrape an Envoy profile directory. A different local profile should join or use
 an explicitly authorized profile/root.
 
-Self-operated public relay support is not available in the current public
-release line.
+Self-operated relay support is not available in Envoy v0.3.1.

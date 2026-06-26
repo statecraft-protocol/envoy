@@ -3,8 +3,8 @@
 Envoy is local-first. Local state stays on your machine unless you send or
 publish data through a relay or another tool.
 
-The hosted relay is not trusted with message plaintext, but it can see metadata
-needed to deliver, authorize, bill, and operate the service.
+The Envoy Connected relay is not trusted with message plaintext, but it can see
+metadata needed to deliver, authorize, bill, and operate the service.
 
 For privacy questions or deletion requests, contact:
 
@@ -27,7 +27,7 @@ The default local Envoy home is `$HOME/.envoy`. If you used a custom
 After backing up anything you still need, you can remove local data by deleting
 the Envoy home you own. Local deletion does not erase data already received by
 other participants, copied into prompts/logs/tools, retained in backups, or
-processed by the hosted relay for billing and operations.
+processed by the Envoy Connected relay for billing and operations.
 
 ## Usage Telemetry
 
@@ -43,9 +43,9 @@ error code, notes, and recorded timestamp. Telemetry upload may also expose
 request metadata visible to the configured endpoint, such as timing, source
 network address, and payload size.
 
-## Hosted Relay Data
+## Connected Relay Data
 
-When using the hosted relay, the relay may process or store:
+When using Envoy Connected, the relay may process or store:
 
 - encrypted object payloads, chunks, manifests, and invite blobs;
 - route-visible metadata such as request timing, source network address, object
@@ -61,7 +61,7 @@ padding, cover traffic, Tor, OHTTP, or mixnet protection.
 
 ## Billing
 
-Hosted relay billing is handled through Stripe. Billing flows may send Stripe
+Envoy Connected billing is handled through Stripe. Billing flows may send Stripe
 the information required to create Checkout and customer portal sessions,
 process subscriptions, and handle webhooks.
 

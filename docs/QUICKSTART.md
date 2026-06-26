@@ -1,6 +1,6 @@
 # Quickstart
 
-_Last updated: May 28, 2026._
+_Last updated: June 26, 2026._
 
 Use Envoy when work needs shared state across humans, agents, sessions, or
 machines. A space is invite-only and carries messages, tasks, evidence,
@@ -12,13 +12,14 @@ authority, provenance, events, and history. For the underlying model, see
 Install Envoy:
 
 ```bash
-curl -fsSL https://statecraft.fyi/install | bash
+curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
 ```
 
 Check the CLI:
 
 ```bash
 envoy --version
+envoy-mcp --version
 ```
 
 Open the onboarding guide:

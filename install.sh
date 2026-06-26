@@ -2,12 +2,12 @@
 # install.sh - Install the Envoy CLI and MCP adapter binaries.
 #
 # Usage:
-#   curl -fsSL https://statecraft.fyi/install | bash
-#   curl -fsSL https://statecraft.fyi/install | bash -s -- --help
+#   curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash -s -- --help
 #
 # What it does:
 #   1. Detects the supported platform.
-#   2. Downloads the matching CLI and MCP adapter binaries from the public Envoy release.
+#   2. Downloads the matching CLI and MCP adapter binaries from GitHub Releases.
 #   3. Verifies SHA256SUMS with the pinned release signing key.
 #   4. Verifies SHA256 checksum from the required SHA256SUMS manifest.
 #   5. Installs to ~/.local/bin/envoy and ~/.local/bin/envoy-mcp.
@@ -16,7 +16,7 @@
 #
 # Environment variables:
 #   ENVOY_INSTALL_DIR   Override install directory (default: ~/.local/bin)
-#   ENVOY_VERSION       Pin a specific release tag (default: latest)
+#   ENVOY_VERSION       Pin a specific release tag (default: v0.3.1)
 
 set -euo pipefail
 
@@ -27,8 +27,9 @@ else
     DEFAULT_INSTALL_DIR=""
 fi
 INSTALL_DIR="${ENVOY_INSTALL_DIR:-$DEFAULT_INSTALL_DIR}"
-VERSION="${ENVOY_VERSION:-latest}"
+VERSION="${ENVOY_VERSION:-v0.3.1}"
 SUPPORTED_PLATFORMS="macOS arm64 and Linux x86_64 with glibc"
+SUPPORTED_PLATFORM_HELP_URL="https://github.com/statecraft-protocol/envoy/blob/v0.3.1/docs/INSTALL.md"
 CHECKSUM_MANIFEST_NAME="SHA256SUMS"
 CHECKSUM_SIGNATURE_NAME="SHA256SUMS.sig"
 CHECKSUM_SIGNATURE_NAMESPACE="envoy-release-checksums-v1@statecraft.fyi"
@@ -47,8 +48,8 @@ usage() {
 envoy installer
 
 USAGE
-    curl -fsSL https://statecraft.fyi/install | bash
-    curl -fsSL https://statecraft.fyi/install | bash -s -- [OPTIONS]
+    curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash
+    curl -fsSL https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/install.sh | bash -s -- [OPTIONS]
 
 OPTIONS
     --help              Show this help message
@@ -268,7 +269,12 @@ detect_os() {
     case "$os" in
         Linux)   echo "linux" ;;
         Darwin)  echo "darwin" ;;
-        *)       fatal "Unsupported OS: $os. Envoy supports ${SUPPORTED_PLATFORMS}." ;;
+        *)
+            fatal_lines \
+                "Unsupported OS: $os." \
+                "Current signed public binaries are ${SUPPORTED_PLATFORMS}." \
+                "See ${SUPPORTED_PLATFORM_HELP_URL}."
+            ;;
     esac
 }
 
@@ -278,7 +284,12 @@ detect_arch() {
     case "$arch" in
         x86_64|amd64)   echo "x86_64" ;;
         aarch64|arm64)   echo "arm64" ;;
-        *)               fatal "Unsupported architecture: $arch. Envoy supports ${SUPPORTED_PLATFORMS}." ;;
+        *)
+            fatal_lines \
+                "Unsupported architecture: $arch." \
+                "Current signed public binaries are ${SUPPORTED_PLATFORMS}." \
+                "See ${SUPPORTED_PLATFORM_HELP_URL}."
+            ;;
     esac
 }
 
@@ -299,8 +310,9 @@ require_linux_glibc() {
             *musl*|*Musl*)
                 fatal_lines \
                     "Unsupported Linux libc: musl detected." \
-                    "Envoy publishes ${SUPPORTED_PLATFORMS}." \
-                    "Alpine/musl is not supported."
+                    "Current signed public binaries are ${SUPPORTED_PLATFORMS}." \
+                    "Alpine/musl is not supported." \
+                    "See ${SUPPORTED_PLATFORM_HELP_URL}."
                 ;;
             *GLIBC*|*glibc*|*"GNU libc"*)
                 info "Detected libc: ${ldd_version}"
@@ -364,13 +376,22 @@ artifact_name() {
             echo "envoy-linux-x86_64"
             ;;
         darwin/x86_64)
-            fatal "Unsupported platform: macOS x86_64/Intel. Envoy supports ${SUPPORTED_PLATFORMS}."
+            fatal_lines \
+                "Unsupported platform: macOS x86_64/Intel." \
+                "Current signed public binaries are ${SUPPORTED_PLATFORMS}." \
+                "See ${SUPPORTED_PLATFORM_HELP_URL}."
             ;;
         linux/arm64)
-            fatal "Unsupported platform: Linux arm64. Envoy supports ${SUPPORTED_PLATFORMS}."
+            fatal_lines \
+                "Unsupported platform: Linux arm64." \
+                "Current signed public binaries are ${SUPPORTED_PLATFORMS}." \
+                "See ${SUPPORTED_PLATFORM_HELP_URL}."
             ;;
         *)
-            fatal "Unsupported platform: ${os}/${arch}. Envoy supports ${SUPPORTED_PLATFORMS}."
+            fatal_lines \
+                "Unsupported platform: ${os}/${arch}." \
+                "Current signed public binaries are ${SUPPORTED_PLATFORMS}." \
+                "See ${SUPPORTED_PLATFORM_HELP_URL}."
             ;;
     esac
 }
@@ -961,7 +982,7 @@ main() {
     echo "  ------------"
     echo "    envoy quickstart         # human: create a local space and invite"
     echo "    envoy onboarding         # human: learn the local/relay model"
-    echo "    envoy docs               # human: find public and installed docs"
+    echo "    envoy docs               # human: find repo and installed docs"
     echo ""
     echo "  MCP clients:"
     echo "  ------------"
@@ -971,15 +992,15 @@ main() {
     echo ""
     echo "  Agent guidance:"
     echo "  ---------------"
-    echo "    Read https://statecraft.fyi/llms.txt first."
+    echo "    Read https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/llms.txt first."
     echo "    Create a space only when the user asks."
     echo ""
     echo "  Repo:   https://github.com/statecraft-protocol/envoy"
     echo "  Agents:"
-    echo "    https://statecraft.fyi/llms.txt"
-    echo "    https://statecraft.fyi/llms-full.txt"
-    echo "    https://github.com/statecraft-protocol/envoy/blob/main/llms.txt"
-    echo "    https://github.com/statecraft-protocol/envoy/blob/main/llms-full.txt"
+    echo "    https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/llms.txt"
+    echo "    https://raw.githubusercontent.com/statecraft-protocol/envoy/v0.3.1/llms-full.txt"
+    echo "    https://github.com/statecraft-protocol/envoy/blob/v0.3.1/llms.txt"
+    echo "    https://github.com/statecraft-protocol/envoy/blob/v0.3.1/llms-full.txt"
 
     print_install_result "$INSTALL_DIR"
 }
