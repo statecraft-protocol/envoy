@@ -75,7 +75,13 @@ Envoy Connected is managed through:
 
 ```bash
 envoy billing status
+```
+
+```bash
 envoy billing checkout
+```
+
+```bash
 envoy billing portal
 ```
 
